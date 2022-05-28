@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            margin: auto;
+            margin-top: 100px;
+        }
+        input,select,button{
+            margin: 15px;
+            padding: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="product name" id="name">
+        <input type="text" placeholder="prodect catogery" id="category">
+        <input type="text" placeholder="enter image url" id="image">
+        <input type="text" placeholder="enter price" id="price">
+        <select  id="gender">
+            <option value="male">male</option>
+            <option value="female">female</option>
+        </select>
+        <select id="sold">
+            <option value="false" selected>false</option>
+            <option value="true" >true</option>
+        </select>
+        <button onclick="myfun()" id="add">add</button>
+    </form>
+</body>
+</html>
+<script>
+    let arr=[];
+    function myfun(){
+        event.preventDefault();
+        let name=document.getElementById("name").value;
+        let category=document.getElementById("category").value;
+        let image=document.getElementById("image").value;
+        let gender=document.getElementById("gender").value;
+        let sold=document.getElementById("sold").value;
+        let products=new createData(name,category,image,gender,sold);
+        arr.push(products);
+        localStorage.getItem("products",null);
+        localStorage.setItem("products",JSON.stringify(arr));
+    }
+    function createData(name,category,image,gender,sold){
+       let products={
+           name:name,
+           category:category,
+           image:image,
+           gender:gender,
+           sold:sold
+       }
+       return products;
+    }
+</script>

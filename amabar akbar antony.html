@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   function sing(){
+       console.log(this.name+" sings really well")
+   }
+   function chef(){
+       console.log(this.name+" is a really good chef")
+   }
+   function magician(){
+       console.log(this.name+" can do some awesome trick")
+   }
+   function amber(){
+       this.name="amber"
+   }
+   function akbar(){
+       this.name="akbar"
+   }
+   function antony(){
+       this.name="antony"
+   }
+   sing.call(amber)
+   chef.call(akbar)
+   magician.call(antony)
+</script>
